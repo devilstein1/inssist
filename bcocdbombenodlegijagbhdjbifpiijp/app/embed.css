@@ -1,0 +1,138 @@
+/* Disable transition for side panel buttons */
+.PolarisNavigation a.PressableText > div {
+  transition: none !important;
+}
+/* Make navigation icons ordered */
+@media (width >= 768px) {
+  .PolarisNavigationIcons {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* PostCreationBody */
+/* Fix Instagram bug: video can overlap creation controls on the right */
+.PolarisCreationModalBodyV2:nth-child(2) > div > .PolarisCreationModalBodyV2 {
+  background: rgb(var(--ig-elevated-background));
+}
+/* IG renderes visited links in stories in blue color, prevent this */
+a.PolarisStoriesV3LinkStickerPopover:visited {
+  color: #fff;
+}
+/* Hide 'Boost story' button for stories */
+.PolarisPostBoostButton {
+  display: none !important;
+}
+/* Post photo container with user tag */
+.PolarisPhotoWithIndicator {
+  /* User tag button */
+  .PolarisUserTagIndicator {
+    top: 0 !important;
+    bottom: auto !important;
+    background: rgb(var(--web-overlay-on-media)) !important;
+  }
+}
+/* Post video container */
+.PolarisPostVideoPlayerWrapper, /* feed and modal */
+.PolarisPostMediaVideoPlayerWrapper /* post page */ {
+  /* Video */
+  video {
+    cursor: pointer !important;
+  }
+
+  /* Overlay */
+  .VideoPlayerComponentContainer {
+    display: flex !important;
+    align-items: flex-start !important;
+    padding: 12px !important;
+    gap: 12px !important;
+
+    html[data-video-controls='true'] & {
+      pointer-events: none !important;
+    }
+
+    html[data-video-controls='false'] & {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* Unused element */
+    html[data-video-controls='true'] & > .PolarisPostVideoPlayerSurface {
+      display: none !important;
+    }
+
+    /* Play overlay */
+    html[data-video-controls='true'] & > .VideoPlayerInteractionOverlay {
+      display: none !important;
+    }
+
+    /* Mute button */
+    > .VideoPlayerInteractionOverlay + div {
+      position: static !important;
+      pointer-events: auto !important;
+      margin: 0 !important;
+      & button > div {
+        margin: 0 !important;
+        background: rgb(var(--web-overlay-on-media)) !important;
+      }
+      html[data-video-controls='true'] & {
+        display: none !important;
+      }
+    }
+
+    /* User tag button */
+    > .VideoPlayerInteractionOverlay + div + div:not(.PolarisIGCoreToast) {
+      margin: 0 !important;
+      position: static !important;
+      pointer-events: auto !important;
+      background: rgb(var(--web-overlay-on-media)) !important;
+    }
+  }
+}
+/* Sidecar step indicator */
+.PolarisSidecar.PolarisStepIndicator {
+  top: 16px !important;
+  bottom: auto !important;
+}
+/* Reel mute button */
+.PolarisClipsTabDesktopClip .WebPressable:has(svg[width='16']),
+.PolarisClipsDesktopVideoPlayer .WebPressable:has(svg[width='16']) {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: var(--color-ig-post-action) !important;
+
+  /* Icon */
+  svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
+html[data-video-controls='true'] {
+  /* Story container */
+  .PolarisStoriesV3ReelPlayerContainer {
+    /* Allow video conrtols to be visible outside of story container */
+    > .PolarisStoriesV3Player {
+      overflow: visible !important;
+    }
+
+    /* Re-implement border-radius for story container */
+    > .PolarisStoriesV3Player > .PolarisStoriesV3Player {
+      overflow: hidden !important;
+      border-top-left-radius: 8px !important;
+      border-top-right-radius: 8px !important;
+      position: relative !important;
+    }
+
+    /* Disable footer border radius */
+    .PolarisStoriesV3MediaPlayer:not([style]) {
+      border-radius: 0 !important;
+    }
+  }
+}
+html[data-ghost='true'] {
+  canvas.PolarisStoryRing {
+    filter: grayscale(1) !important;
+  }
+}
