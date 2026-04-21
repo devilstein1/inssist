@@ -1,0 +1,14 @@
+{
+  "ext_name_production": {
+    "message": "INSSIST | Web Client for Instagram"
+  },
+  "ext_name_beta": {
+    "message": "INSSIST BETA | Web Client for Instagram"
+  },
+  "ext_name_dev": {
+    "message": "INSSIST DEV | Web Client for Instagram"
+  },
+  "ext_description": {
+    "message": "Grow your Instagram. Post Instagram stories, reels, photos from web. Download, schedule posts, track unfollowers, remove bots."
+  }
+}
